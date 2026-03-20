@@ -3338,3 +3338,30 @@
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
+
+
+.collection-slide{
+  padding: 0 10px;
+}
+
+
+.slick-slider {
+  position: relative;
+}
+.slick-prev,
+.slick-next {
+  position: absolute;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  
+
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 40px;
+  color: black !important; 
+  opacity: 1 !important;
+  content: "→";
+}
