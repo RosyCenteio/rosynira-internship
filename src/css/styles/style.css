@@ -16656,6 +16656,7 @@ img {
   position: relative;
   overflow: hidden;
   background-color: #dddbdd;
+  margin:8px;
 }
 
 .skeleton-box::after {
