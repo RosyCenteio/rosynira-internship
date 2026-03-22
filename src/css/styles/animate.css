@@ -3361,7 +3361,7 @@
 .slick-prev:before,
 .slick-next:before {
   font-size: 40px;
-  color: black !important; 
-  opacity: 1 !important;
-  content: "→";
+  color: rgb(0, 0, 0, 0.3) !important; 
+  background-color: white !important;
+  border-radius: 50% !important;
 }
