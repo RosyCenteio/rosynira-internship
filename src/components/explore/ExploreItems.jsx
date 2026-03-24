@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import Skeleton from "../UI/Skeleton";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import axios from "axios";
 
 const ExploreItems = ({explorePage,index, item, loading, onFilterChange, onLoadMore, visibleCount}) => {
 
@@ -108,7 +106,7 @@ const ExploreItems = ({explorePage,index, item, loading, onFilterChange, onLoadM
 
           explorePage ? 
             item.slice(0, visibleCount).map((item, index)=> (
-            <Skeleton key={index} width="228px" height="300px" borderRadius="10px" marginBottom="20px"></Skeleton>)
+            <Skeleton key={index} width="228px" height="441px" borderRadius="10px" marginBottom="20px"></Skeleton>)
             ) : (
               <Skeleton key={index} width="228px" height="300px" borderRadius="10px" marginBottom="20px"></Skeleton>)
           )} 
