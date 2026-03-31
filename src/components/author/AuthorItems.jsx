@@ -9,7 +9,7 @@ const AuthorItems = ({items, authorImage, loading}) => {
         <div className="row">
           {items && items.map((item, index) => (
             loading ? (
-                <Skeleton index={index} width="228px" height="441px" borderRadius="10px" />
+                <Skeleton key={index} width="228px" height="441px" borderRadius="10px" />
              
             ) : (
             <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
@@ -38,7 +38,7 @@ const AuthorItems = ({items, authorImage, loading}) => {
                       </div>
                     </div>
                   </div>
-                  <Link to="/item-details">
+                  <Link to={`/item-details/${item.nftId}`}>
                     <img
                       src={item.nftImage}
                       className="lazy nft__item_preview"
@@ -47,7 +47,7 @@ const AuthorItems = ({items, authorImage, loading}) => {
                   </Link>
                 </div>
                 <div className="nft__item_info">
-                  <Link to="/item-details">
+                  <Link to={`/item-details/${item.nftId}`}>
                     <h4>{item.title}</h4>
                   </Link>
                   <div className="nft__item_price">{item.price} ETH</div>
