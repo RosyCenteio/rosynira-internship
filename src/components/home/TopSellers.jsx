@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Skeleton from "../UI/Skeleton";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
  
 
 const TopSellers = () => {
@@ -20,6 +22,10 @@ const TopSellers = () => {
 
   useEffect(() => {
     fetchTopSellers();
+     AOS.init({
+          duration: 1000,
+          once: true,
+        });
   },[])
 
 
@@ -33,7 +39,7 @@ const TopSellers = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="col-md-12">
+          <div className="col-md-12" data-aos="fade-right" data-aos-delay="100">
             <ol className="author_list">
               {sellers.map((seller, index) => (
                 !loading ? (

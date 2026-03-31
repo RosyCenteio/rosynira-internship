@@ -6,6 +6,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Skeleton from "../UI/Skeleton";
 import { sliderSettings } from "../UI/SliderSettings";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const HotCollections = () => {
@@ -29,6 +31,10 @@ const HotCollections = () => {
 
   useEffect(() => {
     fetchCollections();
+     AOS.init({
+          duration: 1000,
+          once: true,
+        });
   }, []);
 
   return (
@@ -44,7 +50,7 @@ const HotCollections = () => {
           <Slider {...sliderSettings}>
               {collections ?.map((collection, index) => (
                 !loading ? (
-                <div className="collection-slide" key={index}>
+                <div className="collection-slide" key={index} data-aos="fade-in" data-aos-delay="100">
                   <div className="nft_coll">
                     <div className="nft_wrap">
                       <Link to={`/item-details/${collection.nftId}`}>

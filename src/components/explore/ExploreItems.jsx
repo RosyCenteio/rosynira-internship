@@ -3,9 +3,19 @@ import { Link } from "react-router-dom";
 import Skeleton from "../UI/Skeleton";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ExploreItems = ({explorePage,index, item, loading, onFilterChange, onLoadMore, visibleCount}) => {
 
+
+  useEffect(() => {
+    AOS.init({
+            duration: 1000,
+            once: true,
+          });
+  }, []);
+  
   function getTimeLeft(date) {
     const now = new Date();
     const expiry = new Date(date);
@@ -26,15 +36,16 @@ const ExploreItems = ({explorePage,index, item, loading, onFilterChange, onLoadM
         <div
         key={index}
         className={explorePage ? "d-item col-lg-3 col-md-6 col-sm-6 col-xs-12" : "collection-slide"}
-        style={{ display: "block", backgroundSize: "cover" }}>
+        style={{ display: "block", backgroundSize: "cover" }}
+        data-aos="fade-left"
+        data-aos-delay="100">
         <div className="nft__item">
           <div className="author_list_pp">
             <Link
               to={`/author/${item.authorId}`}
               data-bs-toggle="tooltip"
               data-bs-placement="top"
-              title={`Creator: ${item.authorName}`}
-            >
+              title={`Creator: ${item.authorName}`}>
               <img className="lazy" src={item.authorImage} alt="" />
               <i className="fa fa-check"></i>
             </Link>

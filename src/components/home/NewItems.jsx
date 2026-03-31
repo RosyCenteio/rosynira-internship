@@ -8,6 +8,7 @@ import { sliderSettings } from "../UI/SliderSettings";
 import ExploreItems from "../explore/ExploreItems";
 
 
+
 const NewItems = () => {
 
     const [items, setItems] = useState([]);
@@ -47,7 +48,7 @@ const NewItems = () => {
           <Slider {...sliderSettings}>
             {
               items ?.map((item, index) => (
-                <ExploreItems key={index} explorePage={explorePage} item={item} loading={loading} />
+                <ExploreItems key={index} explorePage={explorePage} item={item} loading={loading}/>
               ))
             }
           </Slider>
