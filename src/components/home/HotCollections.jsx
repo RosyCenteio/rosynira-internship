@@ -47,22 +47,34 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <Slider {...sliderSettings}>
-              {collections ?.map((collection, index) => (
-                !loading ? (
-                <div className="collection-slide" key={index} data-aos="fade-in" data-aos-delay="100">
+          <Slider {...sliderSettings}>  
+            {loading ? (
+              Array(4).fill(0).map((_, index) => (
+                <Skeleton
+                  key={index}
+                  width="90%"
+                  height="300px"
+                  borderRadius="10px"
+                  marginBottom="20px"
+                />
+              ))
+            ) : (
+              collections.map((collection, index) => (
+                <div className="collection-slide" key={index} data-aos="fade-in"  data-aos-delay="100">
                   <div className="nft_coll">
                     <div className="nft_wrap">
                       <Link to={`/item-details/${collection.nftId}`}>
-                        <img src={collection.nftImage} className="lazy img-fluid" alt="" />
+                        <img src={collection.nftImage} className="img-fluid" alt="" />
                       </Link>
                     </div>
+
                     <div className="nft_coll_pp">
                       <Link to={`/author/${collection.authorId}`}>
-                        <img className="lazy pp-coll" src={collection.authorImage} alt="" />
+                        <img className="pp-coll" src={collection.authorImage} alt="" />
                       </Link>
                       <i className="fa fa-check"></i>
                     </div>
+
                     <div className="nft_coll_info">
                       <Link to="/explore">
                         <h4>{collection.title}</h4>
@@ -71,11 +83,9 @@ const HotCollections = () => {
                     </div>
                   </div>
                 </div>
-              ):(
-                <Skeleton key={index} width="90%" height="300px" borderRadius="10px" marginBottom="20px"></Skeleton>
-              )
-                
-            ))}
+              ))
+            )}  
+            
           </Slider>
         </div>
       </div>

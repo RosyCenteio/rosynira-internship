@@ -37,7 +37,7 @@ const ExploreItems = ({explorePage,index, item, loading, onFilterChange, onLoadM
         key={index}
         className={explorePage ? "d-item col-lg-3 col-md-6 col-sm-6 col-xs-12" : "collection-slide"}
         style={{ display: "block", backgroundSize: "cover" }}
-        data-aos="fade-left"
+        data-aos="fade-in"
         data-aos-delay="100">
         <div className="nft__item">
           <div className="author_list_pp">
@@ -111,15 +111,15 @@ const ExploreItems = ({explorePage,index, item, loading, onFilterChange, onLoadM
           </select>
         </div>
       }
-      {!loading ? (
-          explorePage ? item.slice(0, visibleCount).map((item, index) => getHtmlItem(item, index)) :  getHtmlItem(item, index)
-          ) : (
+      {loading ? (
+            Array(12).fill(0).map((_, index) => (
+              <Skeleton key={index} width="240.81px" height="441px" borderRadius="10px" marginBottom="20px"></Skeleton>)
+            )
 
-          explorePage ? 
-            item.slice(0, visibleCount).map((item, index)=> (
-            <Skeleton key={index} width="228px" height="441px" borderRadius="10px" marginBottom="20px"></Skeleton>)
-            ) : (
-              <Skeleton key={index} width="228px" height="300px" borderRadius="10px" marginBottom="20px"></Skeleton>)
+
+          ) : (
+           explorePage ? item.slice(0, visibleCount).map((item, index) => getHtmlItem(item, index)) :  getHtmlItem(item, index)
+         
           )} 
         { explorePage && visibleCount < item.length && 
           <div className="col-md-12 text-center">

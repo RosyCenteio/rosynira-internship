@@ -27,7 +27,7 @@ const Landing = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6" data-aos="fade-right">
-              <h6 data-aos="fade-up" data-aos-delay="100">
+              <h6 data-aos="fade-up">
                 <span className="text-uppercase id-color-2">
                   Ultraverse Market
                 </span>

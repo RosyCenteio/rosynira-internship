@@ -39,11 +39,17 @@ const TopSellers = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="col-md-12" data-aos="fade-right" data-aos-delay="100">
+          <div className="col-md-12" data-aos="fade-right">
             <ol className="author_list">
-              {sellers.map((seller, index) => (
-                !loading ? (
-                <li key={index}>
+              {
+                loading ? (
+                  Array(12).fill(0).map((_, index) => (
+                    <Skeleton key={index} width="80%" height="60px" borderRadius="10px" marginBottom="20px"></Skeleton>))
+                )
+                 :
+                (
+                  sellers.map((seller, index) => (
+                  <li key={index}>
                   <div className="author_list_pp">
                     <Link to={`/author/${seller.authorId}`}>
                       <img
@@ -59,9 +65,6 @@ const TopSellers = () => {
                     <span>{seller.price} ETH</span>
                   </div>
                 </li>
-                ) :
-                (
-                <Skeleton key={index} width="80%" height="60px" borderRadius="10px" marginBottom="20px"></Skeleton>
                 )
             ))}
             </ol>
